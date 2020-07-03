@@ -62,8 +62,8 @@ class App extends Component {
     this.getStoredLinks()
   }
 
-  deleteHandler = (index, key) => {
-    localStorage.removeItem(key)
+  deleteHandler = (title, link) => {
+    localStorage.removeItem(title)
     //console.log("kjhjhjh")
     // this.state.items({
     //   "title": index,
@@ -73,20 +73,20 @@ class App extends Component {
     //   items: this.state.items
     // })
 
-    console.log(index, key)
+    console.log(title, link)
     this.getStoredLinks()
   }
 
-  editHandler = (value, key) => {
+  editHandler = (title, link) => {
     this.setState({
-      link_text: value,
-      title_text: key
+      link_text: link,
+      title_text: title
     })
   }
 
   addItem = (title,link) => {
     console.log(title)
-    window.localStorage.setItem(link, title);
+    window.localStorage.setItem(title, link);
     this.getStoredLinks() 
 
     this.setState({

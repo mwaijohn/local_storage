@@ -11,13 +11,13 @@ class Bookmark extends Component {
                         <div className="bookmark-item-container">
                             <div>
                                 <div>
-                                    {index + 1} <a href={element['title']} target="blank" className="title">{element['link']}</a>
+                                    {index + 1} <a href={element['link']} target="blank" className="title">{element['title']}</a>
                                 </div>
-                                <small>{element['title']}</small>
+                                <small>{element['link']}</small>
                             </div>
                             <div>
-                                <button className="edit" onClick={this.props.editHandler.bind(this, element['link'], element['title'])}>Edit</button>
-                                <button className="delete" onClick={this.props.deleteHandler.bind(this, element['link'], element['title'])}>Delete</button>
+                                <button className="edit" onClick={this.props.editHandler.bind(this, element['title'], element['link'])}>Edit</button>
+                                <button className="delete" onClick={this.props.deleteHandler.bind(this, element['title'], element['link'])}>Delete</button>
                             </div>
                         </div>
 
