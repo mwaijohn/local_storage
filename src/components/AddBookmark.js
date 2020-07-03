@@ -9,20 +9,13 @@ class AddBookmark extends Component {
         }
     }
 
-    handleChange = (e) => {
-        this.setState({
-            [e.target.name] : e.target.value
-        })
-        console.log(e.target.value)
-    }
-
     handleSubmit = (e) => {
         e.preventDefault()
         //alert(`${this.state.link} ${this.state.title}`)
         //window.location.reload(false)
-
-        this.props.addItem(this.state.title_text,this.state.link_text)
+        this.props.addItem(this.props.title_text, this.props.link_text)
     }
+
 
     formDivStyle = {
         display: this.props.displayForm ? "flex" : "none"
@@ -35,10 +28,10 @@ class AddBookmark extends Component {
                     <legend >Add Bookmark</legend>
                     <form onSubmit={this.handleSubmit}>
                         <input type="text" name="title_text" placeholder="enter bookmark title" id="name" required
-                            value={this.state.title_text} onChange={this.handleChange} />
+                            value={this.props.title_text} onChange={this.props.handleChange} />
                         <br></br>
                         <input type="text" name="link_text" placeholder="enter bookmark link" id="link" required
-                            value={this.state.link_text} onChange={this.handleChange} />
+                            value={this.props.link_text} onChange={this.props.handleChange} />
                         <br></br>
                         <input type="submit" value="add bookmark" />
                     </form>

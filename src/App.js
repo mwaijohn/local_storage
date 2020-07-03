@@ -14,10 +14,21 @@ class App extends Component {
       title: "",
       link: "",
       items: [],
-      displayForm: true
+      displayForm: true,
+      testv:"block",
+      title_text: "",
+      link_text: ""
     }
   }
 
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+    console.log(e.target.value)
+  }
+
+   
 
   getStoredLinks = () => {
     let bookmarks = [];
@@ -54,29 +65,40 @@ class App extends Component {
   deleteHandler = (index, key) => {
     localStorage.removeItem(key)
     //console.log("kjhjhjh")
-    this.state.items.pop(index)
-    this.setState({
-      items: this.state.items
-    })
+    // this.state.items({
+    //   "title": index,
+    //   "link": key,
+    // })
+    // this.setState({
+    //   items: this.state.items
+    // })
 
     console.log(index, key)
-    // this.getStoredLinks()
+    this.getStoredLinks()
+  }
+
+  editHandler = (value, key) => {
+    this.setState({
+      link_text: value,
+      title_text: key
+    })
   }
 
   addItem = (title,link) => {
     console.log(title)
     window.localStorage.setItem(link, title);
+    this.getStoredLinks() 
+
     this.setState({
-      items: [...this.state.items, {
-        "title": title,
-        "link": link,
-      }]
+      link_text: "",
+      title_text: ""
     })
   }
 
   toggleAddBookMarkForm = () => {
     this.setState({
       displayForm: !this.state.displayForm,
+      testv:"none"
     })
   }
 
@@ -85,8 +107,10 @@ class App extends Component {
 
     return (
       <div className="App">
-        <AddBookMark addItem={this.addItem} displayForm={this.state.displayForm}/>
-        <BookList deleteHandler={this.deleteHandler} bookmarks={bookmarks} toggleForm={this.toggleAddBookMarkForm}/>
+        <AddBookMark addItem={this.addItem} displayForm={this.state.displayForm} title_text={this.state.title_text}
+        link_text={this.state.link_text} handleChange = {this.handleChange}/>
+        <BookList deleteHandler={this.deleteHandler} bookmarks={bookmarks} toggleForm={this.toggleAddBookMarkForm}
+        editHandler = {this.editHandler}/>
       </div>
     )
   }

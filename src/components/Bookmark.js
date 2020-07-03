@@ -3,11 +3,6 @@ import React, { Component } from 'react'
 class Bookmark extends Component {
 
 
-    editHandler = (key, value) => {
-        localStorage.setItem(key, value)
-    }
-
-
     render() {
         return (
             <ul className="bookmarks">
@@ -21,7 +16,7 @@ class Bookmark extends Component {
                                 <small>{element['title']}</small>
                             </div>
                             <div>
-                                <button className="edit">Edit</button>
+                                <button className="edit" onClick={this.props.editHandler.bind(this, element['link'], element['title'])}>Edit</button>
                                 <button className="delete" onClick={this.props.deleteHandler.bind(this, element['link'], element['title'])}>Delete</button>
                             </div>
                         </div>
