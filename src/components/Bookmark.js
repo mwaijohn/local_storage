@@ -5,13 +5,13 @@ class Bookmark extends Component {
 
     render() {
         return (
-            <ul className="bookmarks">
+            <div className="bookmarks">
                 {
-                    this.props.bookmarks.map((element, index) => <li className="bookmark-item" key={index}>
+                    this.props.bookmarks.map((element, index) => <div className="bookmark-item" key={index}>
                         <div className="bookmark-item-container">
                             <div>
                                 <div>
-                                    {index + 1} <a href={element['link']} target="blank" className="title">{element['title']}</a>
+                                   <a href={element['link']} target="blank" className="title">{element['title']}</a>
                                 </div>
                                 <small>{element['link']}</small>
                             </div>
@@ -21,10 +21,10 @@ class Bookmark extends Component {
                             </div>
                         </div>
 
-                    </li>
+                    </div>
                     )
                 }
-            </ul>
+            </div>
         )
     }
 }

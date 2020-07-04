@@ -11,6 +11,7 @@ a:visited{
 }
 a{
      color: rgb(0, 174, 255);
+     text-decoration: solid;
 }
 a:hover{
     cursor: grab;
@@ -47,11 +48,22 @@ input[type= submit]{
 .bookmark-list{
     display: flex;
     flex-direction: column;
+    text-align: center;
     min-width: 450px;
     margin-top: 5px;
 }
+.bookmarks{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: left;
+    justify-content: center;
+}
 .bookmark-item{
-    padding: 5px;
+    margin: 5px;
+    min-width: 250px;
+    padding: 25px;
+    border: 1px solid #817d7d;
 }
 .bookmark-item-container{
     display: flex;
