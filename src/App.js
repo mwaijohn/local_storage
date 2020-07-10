@@ -4,6 +4,8 @@ import './components/BookList'
 import './components/styles.css'
 import BookList from './components/BookList';
 import AddBookMark from './components/AddBookmark'
+import Title from './components/Title';
+import Footer from './Footer';
 
 class App extends Component {
 
@@ -107,10 +109,12 @@ class App extends Component {
 
     return (
       <div className="App">
+        <Title/>
         <AddBookMark addItem={this.addItem} displayForm={this.state.displayForm} title_text={this.state.title_text}
         link_text={this.state.link_text} handleChange = {this.handleChange}/>
         <BookList deleteHandler={this.deleteHandler} bookmarks={bookmarks} toggleForm={this.toggleAddBookMarkForm}
         editHandler = {this.editHandler}/>
+        <Footer/>
       </div>
     )
   }
